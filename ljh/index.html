@@ -2,19 +2,17 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>音乐排行榜</title>
-		<link rel="stylesheet" href="css/1.css" />
+		<title>改变网页背景色</title>
+<script>
+	function color(str) {
+		document.body.style.backgroundColor = str;
+	}
+</script>
 	</head>
 	<body>
-		<div class="bg">
-			<ul>
-				<li class="tp"></li>
-				<li>vnessa—constance</li>
-				<li>dogffedrd—seeirtit</li>
-				<li>dsieirif—constance</li>
-				<li>wytuu—qeyounted</li>
-				<li>qurested—conoted</li>
-			</ul>
-		</div>
+		<input type="button" value="设为红色" onclick="color('red')" >
+		<input type="button" value="设为黄色" onclick="color('yellow')" >
+		<input type="button" value="设为蓝色" onclick="color('blue')" >
+		<input type="button" value="设为自定义颜色" onclick="color('#00ff00')" >
 	</body>
 </html>
