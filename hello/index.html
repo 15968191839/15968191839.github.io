@@ -2,50 +2,116 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>title</title>
-		<style>
-			*{
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-			}
-			form{
-				width: 300px;
-				height: 200px;
-				background-color:aqua ;
-				position: absolute;
-				margin: auto;
-				left: 0;
-				right: 0;
-				top: 0;
-				bottom: 0;
-				padding-top: 20px;
-				text-align: center;
-			}
-			form div{
-				margin: 15px 0px;
-			}
-			form input[type="submit"]{
-				width: 100px;
-				height: 20px;
-			}
-		</style>
+		<title></title>
 	</head>
 	<body>
-		<form action="http://10.100.7.7/server.php" method="post">
-			<div>
-				<label for="username">用户名:</label>
-				<input type="text" name="username" id="username"/>
-			</div>
-			<div>
-				<label for="pwd">密&nbsp;&nbsp;&nbsp;码:</label>
-				<input type="text" name="pwd" id="pwd"/>
-			</div>
-			<div>
-				<label for="e_mail">邮&nbsp;&nbsp;&nbsp;箱:</label>
-				<input type="email" name="e_mail" id="email"/>
-			</div>
-			<input type="submit" value="注册" />
-		</form>
+		<div id="clock">
+ <div class="bg">
+  <div class="point">
+   <div id="hour"></div>
+   <div id="minute"></div>
+   <div id="second"></div>
+   <div class="circle"></div>
+  </div>
+ </div>
+< /div>
+<style>
+ *{
+  margin: 0;
+  padding: 0;
+ }
+ #clock{
+  margin: 5% auto;
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  background: #aaa;
+  position: relative;
+  transform: rotate(-90deg);
+ }
+ #clock .bg{
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -180px;
+  margin-top: -180px;
+ }
+ #clock .point{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -14px;
+  margin-top: -14px;
+ }
+ #clock #hour{
+  width: 80px;
+  height: 16px;
+  background: #000;
+  margin: 6px 0 0 14px;
+  /*transform: rotate(30deg);*/
+  transform-origin:0 8px;
+  /*animation: hour 3s linear 100!* alternate*!;*/
+  border-radius: 16px;
+ }
+ 
+ #clock #minute{
+  width: 120px;
+  height: 12px;
+  background: #000;
+  margin: -14px 0 0 14px;
+  transform-origin:0 6px;
+  border-radius: 12px;
+ }
+ #clock #second{
+  width: 160px;
+  height: 6px;
+  background: #f00;
+  margin: -9px 0 0 14px;
+  transform-origin:0 3px;
+  border-radius: 6px;
+ }
+ #clock .point .circle{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  left: 0;
+  top: 0;
+ }
+ @keyframes hour {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+ }
+ 
+ #clock .number{
+  position: absolute;
+  font-size: 34px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  transform: rotate(90deg);
+ }
+ function clock(){
+ var date = new Date();
+ 
+ var hourDeg = date.getHours()*360/12;
+ var minuteDeg = date.getMinutes()*360/60;
+ var secondDeg = date.getSeconds()*360/60;
+
+
+ hour.style.transform = 'rotate('+hourDeg+'deg)';
+ minute.style.transform = 'rotate('+minuteDeg+'deg)';
+ second.style.transform = 'rotate('+secondDeg+'deg)';
+}
+clock();
+setInterval(clock,1000);
+
+< /style>
 	</body>
 </html>
